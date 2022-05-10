@@ -1,22 +1,22 @@
-import {loadGLTF} from "../../applications-20220402/applications/libs/loader.js"
+import {loadGLTF} from "libs/loader.js"
 const THREE = window.MINDAR.IMAGE.THREE;
 
 document.addEventListener('DOMContentLoaded', () => {
     const start = async () => {
         const mindarThree = new window.MINDAR.IMAGE.MindARThree({
             container: document.body,
-            imageTargetSrc: '../../applications-20220402/applications/assets/targets/musicband.mind'
+            imageTargetSrc: 'targets/musicband.mind'
         });
         const {renderer, scene, camera} = mindarThree;
 
         const light = new THREE.HemisphereLight(0xffffff, 0xbbbbff, 1);
         scene.add(light);
 
-        const raccoon = await loadGLTF("../../applications-20220402/applications/assets/models/musicband-raccoon/scene.gltf");
+        const raccoon = await loadGLTF("musicband-raccoon/scene.gltf");
         raccoon.scene.scale.set(0.1, 0.1, 0.1);
         raccoon.scene.position.set(0, -0.4, 0);
 
-        const bear = await loadGLTF("../../applications-20220402/applications/assets/models/musicband-bear/scene.gltf");
+        const bear = await loadGLTF("musicband-bear/scene.gltf");
         bear.scene.scale.set(0.1, 0.1, 0.1);
         bear.scene.position.set(0, -0.4, 0);
 
